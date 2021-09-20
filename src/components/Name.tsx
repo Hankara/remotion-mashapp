@@ -1,21 +1,24 @@
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import { Name } from '../interface';
 
-export const Title: React.FC<{
-	titleText: string;
-	titleColor: string;
-}> = ({titleText, titleColor}) => {
+export const NameText: React.FC<{
+	name: Name;
+}> = ({name}) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
-	const text = titleText.split(' ').map((t) => ` ${t} `);
+  const nameText = name.first + " " + name.last;
+	const text = nameText.split(' ').map((t) => ` ${t} `);
+	
 	return (
 		<h1
 			style={{
 				fontFamily: 'SF Pro Text, Helvetica, Arial',
 				fontWeight: 'bold',
-				fontSize: 100,
+				fontSize: 160,
 				textAlign: 'center',
+				textShadow: '5px 5px 10px black',
 				position: 'absolute',
-				bottom: 160,
+				bottom: 0,
 				width: '100%',
 			}}
 		>
@@ -24,7 +27,7 @@ export const Title: React.FC<{
 					<span
 						key={t}
 						style={{
-							color: titleColor,
+							color: 'white',
 							marginLeft: 10,
 							marginRight: 10,
 							transform: `scale(${spring({

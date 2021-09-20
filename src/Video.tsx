@@ -1,52 +1,36 @@
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
-import {Logo} from './HelloWorld/Logo';
-import {Subtitle} from './HelloWorld/Subtitle';
-import {Title} from './HelloWorld/Title';
+import React, { useState } from "react";
+import { Composition } from 'remotion';
+import { Header } from "./components/Header";
+import { Users } from './components/Users';
+import { useFetchUsers } from "./useFetchUsers";
+
+const FPS = 30;
+const WIDTH = 1920;
+const HEIGHT = 1080;
 
 export const RemotionVideo: React.FC = () => {
+	const [userCount, setUserCount] = useState(3);
+	const [duration, setDuration] = useState(3);
+	const { users } = useFetchUsers(userCount);
+
+	if (!users) return null;
+
 	return (
 		<>
+			<Header userCount={userCount} duration={duration} setUserCount={setUserCount} setDuration={setDuration} />
 			<Composition
-				id="HelloWorld"
-				component={HelloWorld}
-				durationInFrames={150}
-				fps={30}
-				width={1920}
-				height={1080}
-				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: 'black',
-				}}
-			/>
-			<Composition
-				id="Logo"
-				component={Logo}
-				durationInFrames={200}
-				fps={30}
-				width={1920}
-				height={1080}
-			/>
-			<Composition
-				id="Title"
-				component={Title}
-				durationInFrames={100}
-				fps={30}
-				width={1920}
-				height={1080}
-				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: 'black',
-				}}
-			/>
-			<Composition
-				id="Subtitle"
-				component={Subtitle}
-				durationInFrames={100}
-				fps={30}
-				width={1920}
-				height={1080}
+        id="Users"
+        component={Users}
+        durationInFrames={(duration * FPS * userCount) > 0 ? Math.round(duration * FPS * userCount) : 1}
+        fps={FPS}
+        width={WIDTH}
+        height={HEIGHT}
+        defaultProps={{
+          users,
+          duration,
+        }}
 			/>
 		</>
 	);
 };
+
