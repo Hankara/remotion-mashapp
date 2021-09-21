@@ -1,4 +1,19 @@
-# Remotion video
+# About
+
+Create videos with pictures of random people from randomuser.me api with these easy steps
+
+1. 'Fork' repo to produce a copy of this project.
+2. Click the 'Actions' tab.
+3. Select the 'Render video' workflow on the left.
+4. A 'Run workflow' button should appear. Click it
+5. Fill in the props of the root component and click 'Run workflow'.
+6. After the rendering is finished, you can download the video under 'Artifacts'.
+
+<p align="center">
+  <img src="demo/demo.gif" alt="animated" />
+</p>
+
+# Made with Remotion video
 
 <p align="center">
   <a href="https://github.com/remotion-dev/logo">
@@ -6,48 +21,4 @@
   </a>
 </p>
 
-Welcome to your Remotion project!
-
-## Commands
-
-**Start Preview**
-
-```console
-npm start
-```
-
-**Render video**
-
-```console
-npm run build
-```
-
-**Server render demo**
-
-```console
-npm run server
-```
-
-See [docs for server-side rendering](https://www.remotion.dev/docs/ssr) here.
-
-**Upgrade Remotion**
-
-```console
-npm run upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help [on our Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Notice that for some entities a company license is needed. Read [the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+https://www.remotion.dev/
