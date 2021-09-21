@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Composition } from 'remotion';
-import { Header } from "./components/Header";
+import { Composition, getInputProps } from 'remotion';
+//import { Header } from "./components/Header";
 import { Users } from './components/Users';
 import { useFetchUsers } from "./useFetchUsers";
 
@@ -8,16 +8,21 @@ const FPS = 30;
 const WIDTH = 1920;
 const HEIGHT = 1080;
 
-export const RemotionVideo: React.FC = () => {
-	const [userCount, setUserCount] = useState(3);
-	const [duration, setDuration] = useState(3);
-	const { users } = useFetchUsers(userCount);
+const defaultProps = {
+  renderUserCount: 3,
+  durationPerUserInSeconds: 2,
+};
+const inputProps = { ...defaultProps, ...getInputProps() };
 
-	if (!users) return null;
+export const RemotionVideo: React.FC = () => {
+  const { renderUserCount, durationPerUserInSeconds } = inputProps;
+	const [userCount, setUserCount] = useState(renderUserCount);
+	const [duration, setDuration] = useState(durationPerUserInSeconds);
+	const { users } = useFetchUsers(userCount);
 
 	return (
 		<>
-			<Header userCount={userCount} duration={duration} setUserCount={setUserCount} setDuration={setDuration} />
+			{/*<Header userCount={userCount} duration={duration} setUserCount={setUserCount} setDuration={setDuration} />*/}
 			<Composition
         id="Users"
         component={Users}

@@ -1,10 +1,14 @@
 {
-	"name": "remotion-template",
+	"name": "remotion-mashapp",
 	"version": "1.0.0",
 	"description": "Create videos from random users pictures programatically with remotion library",
+  "engines": {
+    "node": "14.5.0",
+    "npm": "6.14.5"
+  },
 	"scripts": {
 		"start": "remotion preview src/index.tsx",
-		"build": "remotion render src/index.tsx HelloWorld out.mp4",
+		"render": "remotion render src/index.tsx Users out.mp4",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"

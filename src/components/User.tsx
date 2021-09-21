@@ -20,7 +20,7 @@ export const User: React.FC<Props> = ({imageSource, imageAlt}) => {
       height: config.height,
     }}
 	>
-		<Img style={{ width: config.width - FRAME_BORDER, height:config.height - FRAME_BORDER}} src={imageSource} alt={imageAlt} />
+		<Img style={{ width: config.width - FRAME_BORDER, height: config.height - FRAME_BORDER}} src={imageSource} alt={imageAlt} />
 	</div>
 	);
 };

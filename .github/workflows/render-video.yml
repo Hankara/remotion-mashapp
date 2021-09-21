@@ -1,14 +1,14 @@
 on:
   workflow_dispatch:
     inputs:
-      titleText:
-        description: "Which text should it say?"
+      renderUserCount:
+        description: "Users count in video"
         required: true
-        default: "Welcome to Remotion"
-      titleColor:
-        description: "Which color should it be in?"
+        default: 3
+      durationPerUserInSeconds:
+        description: "Duration for users in seconds"
         required: true
-        default: "black"
+        default: 2
 name: Render video
 jobs:
   render:
