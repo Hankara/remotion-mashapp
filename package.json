@@ -8,7 +8,7 @@
   },
 	"scripts": {
 		"start": "remotion preview src/index.tsx",
-		"render": "remotion render src/index.tsx Users out.mp4",
+		"build": "remotion render src/index.tsx Users out.mp4",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
